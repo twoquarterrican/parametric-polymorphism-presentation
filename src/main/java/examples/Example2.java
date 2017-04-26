@@ -10,11 +10,11 @@ public class Example2 {
 		list.add(12); // '?' may be String
 		list.add(null); // always compiles
 	}
-	
+
 	{ // note that error has shifted from Example1
 		List<Integer> listI = new ArrayList<>();
 		add12(listI);
-		
+
 		List<String> listS = new ArrayList<>();
 		add12(listS);
 	}
