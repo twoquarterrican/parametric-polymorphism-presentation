@@ -9,6 +9,9 @@ public class Example4 {
 		list.add(12); // '?' may be String
 		list.add(12.0); // Doubles not allowed
 		list.add("12"); // Strings not allowed
+
+		Integer x = list.get(0); // can't assume upper bound on type
+		Object y = list.get(0); // 'get' always returns an object
 	}
 
 	{ // List<T> where T is a superclass of Integer
@@ -23,6 +26,9 @@ public class Example4 {
 
 		List<Serializable> listS = new ArrayList<>();
 		add12(listS);
+
+		List<Comparable<? super Integer>> listC = new ArrayList<>();
+		add12(listC);
 	}
 
 }

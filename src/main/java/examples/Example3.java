@@ -15,8 +15,8 @@ public class Example3 {
 		Object x = list.get(0);
 		list.add(x); // still doesn't work
 
-		T t = list.get(0); // T is not a valid identifier
-		list.add(t); // but this does, thanks to capture
+		T t = list.get(0); // T is a valid identifier
+		list.add(t); // works, thanks to capture
 	}
 
 }
