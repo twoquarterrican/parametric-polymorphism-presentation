@@ -7,9 +7,7 @@ import java.util.function.Supplier;
 public class Example10 {
 
 	void rawTypeMethod(List list) {}
-	void genericTypeMethod(List<?> list) {}
-	void nestedRawInGeneric(List<Supplier> list) {}
-	void nestedGenericInGeneric(List<Supplier<?>> list) {}
+	void wildcardMethod(List<?> list) {}
 
 	{
 		// cannot use List<Supplier<String>> where List<Supplier> is expected
@@ -17,9 +15,7 @@ public class Example10 {
 		List<Supplier<String>> stringSupplierList = Arrays.asList(stringSupplier);
 
 		rawTypeMethod(stringSupplierList);
-		genericTypeMethod(stringSupplierList);
-		nestedRawInGeneric(stringSupplierList); // don't want to add a raw type supplier to a list containing very specific generic types
-		nestedGenericInGeneric(stringSupplierList); // same
+		wildcardMethod(stringSupplierList);
 
 
 		// cannot use List<Supplier<String>> where List<Supplier> is expected
@@ -27,9 +23,7 @@ public class Example10 {
 		List<Supplier> rawTypeSupplierList = Arrays.asList(rawTypeSupplier);
 
 		rawTypeMethod(rawTypeSupplierList);
-		genericTypeMethod(rawTypeSupplierList);
-		nestedRawInGeneric(rawTypeSupplierList);
-		nestedGenericInGeneric(rawTypeSupplierList);
+		wildcardMethod(rawTypeSupplierList);
 	}
 
 }
